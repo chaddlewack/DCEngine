@@ -2,11 +2,6 @@
 
 namespace DCEngine { namespace graphics {
 
-	bool Window::m_Keys[MAX_KEYS];
-	bool Window::m_MouseButtons[MAX_BUTTONS];
-	double Window::m_MouseX;
-	double Window::m_mouseY;
-
 	void window_resize(GLFWwindow *window, int width, int height);
 
 	Window::Window(const char *title, int width, int height) {
@@ -15,16 +10,6 @@ namespace DCEngine { namespace graphics {
 		m_Height = height;
 		if (!init())
 			glfwTerminate();
-
-		for (int i = 0; i < MAX_KEYS; i++)
-		{
-			m_Keys[i] = false;
-		}
-
-		for (int i = 0; i < MAX_BUTTONS; i++)
-		{
-			m_MouseButtons[i] = false;
-		}
 
 	}
 
@@ -56,11 +41,10 @@ namespace DCEngine { namespace graphics {
 		}
 
 		std::cout << "OpenGL: " << glGetString(GL_VERSION) << std::endl;
-
 		return true;
 	}
 
-	bool Window::isKeyPressed(unsigned int keyCode) {
+	bool Window::isKeyPressed(unsigned int keyCode) const {
 		if (keyCode >= MAX_KEYS) {
 			//TODO: Add logging
 			return false;
@@ -68,7 +52,7 @@ namespace DCEngine { namespace graphics {
 		return m_Keys[keyCode];
 	 }
 
-	bool Window::isMouseButtonPressed(unsigned int button) {
+	bool Window::isMouseButtonPressed(unsigned int button) const {
 		if (button >= MAX_BUTTONS) {
 			//TODO: Add logging
 			return false;
@@ -76,7 +60,7 @@ namespace DCEngine { namespace graphics {
 		return m_MouseButtons[button];
 	}
 
-	void Window::getMousePosition(double& x, double& y) {
+	void Window::getMousePosition(double& x, double& y) const {
 		x = m_MouseX;
 		y = m_mouseY;
 	}
