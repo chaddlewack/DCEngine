@@ -17,6 +17,9 @@ int main() {
 	while (!window.closed())
 	{
 		window.clear();
+		double x, y;
+		window.getMousePosition(x, y);
+		std::cout << x << ", y: " << y << std::endl;
 
 #if 1
 		glBegin(GL_QUADS);
