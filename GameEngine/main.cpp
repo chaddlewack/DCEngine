@@ -18,11 +18,13 @@ int main() {
 
 	vec2 vector(1.0f, 2.0f);
 
+	mat4 position = mat4::translation(vec3(2, 3, 4));
+	position *= mat4::identity();
 	while (!window.closed())
 	{
 		window.clear();
-		
 
+		
 #if 1
 		glBegin(GL_QUADS);
 		glVertex2f(-0.5f, -0.5f);
