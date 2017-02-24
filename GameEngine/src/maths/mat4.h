@@ -1,14 +1,19 @@
 #pragma once
 
 #include "vec3.h"
+#include "vec4.h"
 #include "maths_func.h"
 #include <exception>
 
 namespace DCEngine { namespace maths {
 
 	struct mat4 {
-		float elements[4 * 4];
 
+		union {
+			float elements[4 * 4];
+			vec4 columns[4];
+		};
+		
 		// Our Element array is initialized to 0.04f
 		mat4();
 		mat4(float diagonal);

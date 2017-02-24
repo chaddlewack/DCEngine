@@ -24,7 +24,8 @@ int main() {
 	{
 		window.clear();
 
-		
+		vec4 column = position.columns[3];
+		std::cout << column << std::endl;
 #if 1
 		glBegin(GL_QUADS);
 		glVertex2f(-0.5f, -0.5f);

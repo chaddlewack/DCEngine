@@ -2,11 +2,6 @@
 
 namespace DCEngine { namespace maths {
 
-	vec4::vec4(){
-		x = 0;
-		y = 0;
-	}
-
 	vec4::vec4(const float & x, const float & y, const float& z, const float& w)
 	{
 		this->x = x;
