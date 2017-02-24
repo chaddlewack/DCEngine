@@ -42,19 +42,19 @@ namespace DCEngine { namespace maths {
 		return *this;
 	}
 
-	vec3& operator+(vec3 left, const vec3& right){
+	vec3 operator+(vec3 left, const vec3& right){
 		return left.add(right);
 	}
 
-	vec3& operator-(vec3 left, const vec3& right) {
+	vec3 operator-(vec3 left, const vec3& right) {
 		return left.subtract(right);
 	}
 
-	vec3& operator*(vec3 left, const vec3& right) {
+	vec3 operator*(vec3 left, const vec3& right) {
 		return left.multiply(right);
 	}
 
-	vec3& operator/(vec3 left, const vec3& right) {
+	vec3 operator/(vec3 left, const vec3& right) {
 		return left.divide(right);
 	}
 

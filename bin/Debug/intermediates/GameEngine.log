@@ -2,7 +2,11 @@
   vec4.cpp
   vec3.cpp
 \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\vec3.cpp(34): warning C4552: '*': operator has no effect; expected operator with side-effect
+  vec2.cpp
   main.cpp
   Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at '\\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\bin\Debug\vc120.pdb'; linking object as if no debug info
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.exe
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.pdb (Partial PDB)
