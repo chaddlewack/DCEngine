@@ -5,8 +5,13 @@
 namespace DCEngine { namespace maths {
 	// Naming convention of struct to match gsl2
 	struct vec2 {
-		float x, y;
-
+		union {
+			struct {
+				float x, y;
+			};
+			float data[2];
+		};
+		
 		vec2();
 		vec2(const float& x, const float& y);
 
