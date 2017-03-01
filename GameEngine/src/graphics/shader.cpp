@@ -15,8 +15,11 @@ namespace DCEngine { namespace graphics {
 		GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 		GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
-		const char* vertSource = FileUtil::read_file(m_VertPath).c_str();
-		const char* fragSource = FileUtil::read_file(m_FragPath).c_str();
+		std::string vertSourceString = FileUtil::read_file(m_VertPath);
+		std::string fragSourceString = FileUtil::read_file(m_FragPath);
+
+		const char* vertSource = vertSourceString.c_str();
+		const char* fragSource = fragSourceString.c_str();
 
 		glShaderSource(vertex, 1, &vertSource, NULL);
 		glCompileShader(vertex);
@@ -55,6 +58,34 @@ namespace DCEngine { namespace graphics {
 		glDeleteShader(fragment);
 
 		return program;
+	}
+
+	GLint Shader::getUniformLocation(const GLchar* name) {
+		return glGetUniformLocation(m_ShaderId, name);
+	}
+
+	void Shader::setUniformi(const GLchar * name, int value){
+		glUniform1i(getUniformLocation(name), value);
+	}
+
+	void Shader::setUniform1f(const GLchar * name, float value) {
+		glUniform1f(getUniformLocation(name), value);
+	}
+
+	void Shader::setUniform2f(const GLchar * name, const maths::vec2& vector){
+		glUniform2f(getUniformLocation(name), vector.x, vector.y);
+	}
+
+	void Shader::setUniform3f(const GLchar * name, const maths::vec3& vector){
+		glUniform3f(getUniformLocation(name), vector.x, vector.y, vector.z);
+	}
+
+	void Shader::setUniform4f(const GLchar * name, const maths::vec4& vector){
+		glUniform4f(getUniformLocation(name), vector.x, vector.y, vector.z, vector.w);
+	}
+
+	void Shader::setUniformMat4(const GLchar * name, const maths::mat4& matrix){
+		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
 	}
 
 	void Shader::enable() const {

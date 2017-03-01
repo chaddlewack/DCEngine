@@ -18,15 +18,25 @@ namespace DCEngine { namespace graphics {
 	}
 
 	bool Window::init() {
+
 		if (!glfwInit()) {
 			std::cout << "Failed to initialize GLFW" << std::endl;
 			return false;
 		}
+
+		// Only required in running on osx
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		// osx only
+
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 		if (!m_Window) {
 			std::cout << "Failed to create GLFW window!" << std::endl;
 			return false;
 		}
+
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, this);
 		glfwSetWindowSizeCallback(m_Window, window_resize);
@@ -39,6 +49,8 @@ namespace DCEngine { namespace graphics {
 			std::cout << "Could not initialize Glew!" << std::endl;
 			return false;
 		}
+
+		printf("Supported GLSL version is %s.\n", (char *)glGetString(GL_SHADING_LANGUAGE_VERSION));
 
 		std::cout << "OpenGL: " << glGetString(GL_VERSION) << std::endl;
 		return true;

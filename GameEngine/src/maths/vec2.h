@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace DCEngine { namespace maths {
-	// Naming convention of struct to match gsl2
+	// Naming convention of struct to match gsl
 	struct vec2 {
 		union {
 			struct {
