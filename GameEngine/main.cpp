@@ -12,24 +12,24 @@ int main() {
 	using namespace maths;
 
 	Window window("DC Engine!", 960, 540);
-	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	GLfloat verticies[] = {
-		0, 0, 0,
-		8, 0, 0,
-		0, 3, 0,
-		0, 3, 0,
-		8, 3, 0,
-		8, 0, 0
+		-0.5f, -0.5f, 0.0f,
+		-0.5f,  0.5f, 0.0f,
+		 0.5f,  0.5f, 0.0f,
+		 0.5f,  0.5f, 0.0f,
+		 0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f
 	};
 
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	GLuint vertex_buffer;
+	glGenBuffers(1, &vertex_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
-
+	
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
@@ -38,7 +38,7 @@ int main() {
 	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 
 	shader.setUniform2f("light_pos", vec2(8.0f, 4.5f));
-	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.6f, 1.0f));
+	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
 	while (!window.closed()){
 		window.clear();

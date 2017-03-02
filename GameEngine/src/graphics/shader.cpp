@@ -21,12 +21,11 @@ namespace DCEngine { namespace graphics {
 		const char* vertSource = vertSourceString.c_str();
 		const char* fragSource = fragSourceString.c_str();
 
+		GLint result;
 		glShaderSource(vertex, 1, &vertSource, NULL);
 		glCompileShader(vertex);
-		
-		GLint vertexResult;
-		glGetShaderiv(vertex, GL_COMPILE_STATUS, &vertexResult);
-		if (vertexResult == GL_FALSE) {
+		glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
+		if (result == GL_FALSE) {
 			GLint length;
 			glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length);
 			std::vector<char> error(length);
@@ -38,10 +37,8 @@ namespace DCEngine { namespace graphics {
 
 		glShaderSource(fragment, 1, &fragSource, NULL);
 		glCompileShader(fragment);
-
-		GLint fragResult;
-		glGetShaderiv(fragment, GL_COMPILE_STATUS, &fragResult);
-		if (fragResult == GL_FALSE) {
+		glGetShaderiv(fragment, GL_COMPILE_STATUS, &result);
+		if (result == GL_FALSE) {
 			GLint length;
 			glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length);
 			std::vector<char> error(length);
@@ -53,6 +50,9 @@ namespace DCEngine { namespace graphics {
 
 		glAttachShader(program, vertex);
 		glAttachShader(program, fragment);
+
+		glLinkProgram(program);
+		glValidateProgram(program);
 
 		glDeleteShader(vertex);
 		glDeleteShader(fragment);
