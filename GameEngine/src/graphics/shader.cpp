@@ -11,7 +11,7 @@ namespace DCEngine { namespace graphics {
 	}
 
 	GLuint Shader::load() {
-		GLuint program = glCreateProgram();
+		GLuint m_Program = glCreateProgram();
 		GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 		GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
@@ -48,16 +48,16 @@ namespace DCEngine { namespace graphics {
 			return 0;
 		}
 
-		glAttachShader(program, vertex);
-		glAttachShader(program, fragment);
+		glAttachShader(m_Program, vertex);
+		glAttachShader(m_Program, fragment);
 
-		glLinkProgram(program);
-		glValidateProgram(program);
+		glLinkProgram(m_Program);
+		glValidateProgram(m_Program);
 
 		glDeleteShader(vertex);
 		glDeleteShader(fragment);
 
-		return program;
+		return m_Program;
 	}
 
 	GLint Shader::getUniformLocation(const GLchar* name) {
@@ -86,6 +86,30 @@ namespace DCEngine { namespace graphics {
 
 	void Shader::setUniformMat4(const GLchar * name, const maths::mat4& matrix){
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
+	}
+
+	void Shader::listAttributes(){
+		glGetProgramiv(m_ShaderId, GL_ACTIVE_ATTRIBUTES, &count);
+		printf("Active Attributes: %d\n", count);
+
+		for (i = 0; i < count; i++){
+			glGetActiveAttrib(m_ShaderId, (GLuint)i, bufSize, &length, &size, &type, name);
+			printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
+		}
+
+		count = 0;
+	}
+
+	void Shader::listUniforms(){
+		glGetProgramiv(m_ShaderId, GL_ACTIVE_UNIFORMS, &count);
+		printf("Active Uniforms: %d\n", count);
+
+		for (i = 0; i < count; i++){
+			glGetActiveUniform(m_ShaderId, (GLuint)i, bufSize, &length, &size, &type, name);
+			printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
+		}
+
+		count = 0;
 	}
 
 	void Shader::enable() const {
