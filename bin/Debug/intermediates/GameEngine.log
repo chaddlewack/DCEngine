@@ -1,8 +1,21 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  vec4.cpp
+  vec3.cpp
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\vec3.cpp(34): warning C4552: '*': operator has no effect; expected operator with side-effect
+  vec2.cpp
+  mat4.cpp
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  window.cpp
   shader.cpp
 \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  renderer.cpp
+  indexbuffer.cpp
+  buffer.cpp
   main.cpp
 \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at '\\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\bin\Debug\vc120.pdb'; linking object as if no debug info
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.exe
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.pdb (Partial PDB)
