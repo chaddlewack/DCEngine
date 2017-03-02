@@ -2,6 +2,10 @@
 #include"src\maths\maths.h"
 #include "src\graphics\shader.h"
 
+#include "src\graphics\buffers\buffer.h"
+#include "src\graphics\buffers\indexbuffer.h"
+#include "src\graphics\buffers\vertexarray.h"
+
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 // This is a standard 2d/3d game engine with a primary focus on mobile application developments
@@ -14,25 +18,48 @@ int main() {
 	using namespace maths;
 
 	Window window("DC Engine!", 960, 540);
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+#if 0
 
 	GLfloat verticies[] = {
-		-0.5f, -0.5f, 0.0f,
-		-0.5f,  0.5f, 0.0f,
-		 0.5f,  0.5f, 0.0f,
-		 0.5f,  0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f
+		0, 0, 0,
+		8, 0, 0,
+		0, 3, 0,
+		0, 3, 0,
+		8, 3, 0,
+		8, 0, 0
 	};
 
 	GLuint vertex_buffer;
-
 	glGenBuffers(1, &vertex_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
-	glDisable(GL_CULL_FACE);
+
+
+#else
+
+	GLfloat verticies[] = {
+		0, 0, 0,
+		0, 3, 0,
+		8, 3, 0,
+		8, 0, 0
+	};
+
+	GLushort indecies[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
+	VertexArray vao;
+	Buffer* vbo = new Buffer(verticies, 4 * 3, 3);
+	IndexBuffer ibo(indecies, 6);
+
+	vao.addBuffer(vbo, 0);
+
+#endif
 
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
@@ -49,8 +76,20 @@ int main() {
 
 	while (!window.closed()){
 		window.clear();
+		double x, y;
+		window.getMousePosition(x, y);
+		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
+
+#if 0
 		glDrawArrays(GL_TRIANGLES, 0, 6);
-		//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, BUFFER_OFFSET(0));
+#else
+		vao.bind();
+		ibo.bind();
+		glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, BUFFER_OFFSET(0));
+		vao.unbind();
+		ibo.unbind();
+#endif
+
 		window.update();
 	}
 
