@@ -4,7 +4,6 @@
 #include "../maths/maths.h"
 #include "renderable2d.h"
 
-
 namespace DCEngine { namespace graphics {
 
 	class Renderer2D {
@@ -12,5 +11,4 @@ namespace DCEngine { namespace graphics {
 		virtual void submit(const Renderable2D* renderable) = 0;
 		virtual void flush() = 0;
 	};
-
 }}

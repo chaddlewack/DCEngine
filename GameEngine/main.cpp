@@ -1,13 +1,16 @@
-#include "src\graphics\window.h"
-#include"src\maths\maths.h"
-#include "src\graphics\shader.h"
+#include "src/graphics/window.h"
+#include"src/maths/maths.h"
+#include "src/graphics/shader.h"
 
-#include "src\graphics\buffers\buffer.h"
-#include "src\graphics\buffers\indexbuffer.h"
-#include "src\graphics\buffers\vertexarray.h"
+#include "src/graphics/buffers/buffer.h"
+#include "src/graphics/buffers/indexbuffer.h"
+#include "src/graphics/buffers/vertexarray.h"
 
 #include "src/graphics/renderer2d.h"
-#include "src\graphics\simple2drenderer.h"
+#include "src/graphics/simple2drenderer.h"
+
+#include "src/graphics/sprite.h"
+#include "src/graphics/static_sprite.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -34,8 +37,8 @@ int main() {
 	shader.listUniforms();
 	shader.listAttributes();
 
-	Renderable2D sprite(maths::vec3(5, 5, 0), maths::vec2(4, 4), maths::vec4(1, 0, 1, 1), shader);
-	Renderable2D sprite2(maths::vec3(7, 1, 0), maths::vec2(2, 3), maths::vec4(0.2f, 0, 1, 1), shader);
+	StaticSprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1), shader);
+	StaticSprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1), shader);
 	Simple2DRenderer renderer;
 
 	while (!window.closed()){
