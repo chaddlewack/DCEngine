@@ -8,9 +8,9 @@
 
 #include "src/graphics/renderer2d.h"
 #include "src/graphics/simple2drenderer.h"
+#include "src/graphics/batchRenderer2D.h"
 
 #include "src/graphics/sprite.h"
-#include "src/graphics/static_sprite.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -37,17 +37,20 @@ int main() {
 	shader.listUniforms();
 	shader.listAttributes();
 
-	StaticSprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1), shader);
-	StaticSprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1), shader);
-	Simple2DRenderer renderer;
+	Sprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1));
+	Sprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1));
+
+	BatchRenderer2D renderer;
 
 	while (!window.closed()){
 		window.clear();
 		double x, y;
 		window.getMousePosition(x, y);
 		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
+		renderer.begin();
 		renderer.submit(&sprite);
 		renderer.submit(&sprite2);
+		renderer.end();
 		renderer.flush();
 		window.update();
 	}
