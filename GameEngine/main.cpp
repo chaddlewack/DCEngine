@@ -1,5 +1,5 @@
 #include "src/graphics/window.h"
-#include"src/maths/maths.h"
+#include "src/maths/maths.h"
 #include "src/graphics/shader.h"
 
 #include "src/graphics/buffers/buffer.h"
@@ -11,11 +11,10 @@
 #include "src/graphics/batchRenderer2D.h"
 
 #include "src/graphics/sprite.h"
-#include "src/graphics/sprite.h"
+#include "src/graphics/static_sprite.h"
 
 #include <time.h>
 
-#define BUFFER_OFFSET(i) ((char *)NULL + (i))
 #define BATCH_RENDERER 1
 
 // This is a standard 2d/3d game engine with a primary focus on mobile application developments
