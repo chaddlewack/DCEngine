@@ -29,5 +29,4 @@ namespace DCEngine { namespace graphics {
 		delete m_VertexArray;
 		delete m_IndexBuffer;
 	}
-
 }}

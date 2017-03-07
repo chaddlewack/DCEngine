@@ -10,7 +10,6 @@ namespace DCEngine { namespace graphics {
 		m_Height = height;
 		if (!init())
 			glfwTerminate();
-
 	}
 
 	Window::~Window() {
