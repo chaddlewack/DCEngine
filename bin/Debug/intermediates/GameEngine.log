@@ -1,4 +1,14 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  window.cpp
-  GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.exe
-  GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.pdb (Partial PDB)
+  tilelayer.cpp
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\layers\tilelayer.cpp(5): error C2146: syntax error: missing ')' before identifier '﻿'
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\layers\tilelayer.cpp(6): error C2512: 'DCEngine::graphics::Layer': no appropriate default constructor available
+  \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\layers\layer.h(8): note: see declaration of 'DCEngine::graphics::Layer'
+  layer.cpp
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\layers\layer.cpp(15): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\mac\home\documents\visual studio 2015\projects\dcengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Generating Code...

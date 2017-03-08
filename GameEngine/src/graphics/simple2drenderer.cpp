@@ -8,7 +8,6 @@ namespace DCEngine { namespace graphics {
 
 	void Simple2DRenderer::flush() {
 		while (!m_RenderQueue.empty()){
-
 			const StaticSprite* sprite = m_RenderQueue.front();
 			sprite->getVAO()->bind();
 			sprite->getIBO()->bind();
