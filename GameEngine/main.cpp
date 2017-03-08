@@ -13,6 +13,8 @@
 #include "src/graphics/sprite.h"
 #include "src/graphics/static_sprite.h"
 
+#include "src\utils\timer.h"
+
 #include <time.h>
 
 #define BATCH_RENDERER 1
@@ -70,6 +72,9 @@ int main() {
 	shader.listUniforms();
 	shader.listAttributes();
 
+	Timer time;
+	float timer = 0;
+	unsigned int frames = 0;
 	while (!window.closed()){
 		window.clear();
 		double x, y;
@@ -78,16 +83,21 @@ int main() {
 #if BATCH_RENDERER
 		renderer.begin();
 #endif
-
 		for (int i = 0; i < sprites.size(); i++){
 			renderer.submit(sprites[i]);
 		}
-
 #if BATCH_RENDERER
 		renderer.end();
 #endif
 		renderer.flush();
 		window.update();
+		frames++;
+		// Simple FPS check
+		if (time.elapsed() - timer > 1.0f) {
+			timer += 1.0f;
+			printf("%d fps\n", frames);
+			frames = 0;
+		}
 	}
 
 	return 0;

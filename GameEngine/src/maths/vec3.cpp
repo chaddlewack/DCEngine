@@ -31,7 +31,7 @@ namespace DCEngine { namespace maths {
 	vec3& vec3::multiply(const vec3 & other){
 		x *= other.x;
 		y *= other.y;
-		z *+other.z;
+		z *=other.z;
 		return *this;
 	}
 
