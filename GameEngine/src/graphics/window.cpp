@@ -43,7 +43,7 @@ namespace DCEngine { namespace graphics {
 		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_Window, cursor_position_callback);
 		// v-sync toggle
-		glfwSwapInterval(1);
+		glfwSwapInterval(0);
 
 		// Glew needs to be checked after the context has been initiated
 		if (glewInit() != GLEW_OK) {
