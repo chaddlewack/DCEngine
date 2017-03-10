@@ -3,8 +3,8 @@
 \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
   \\mac\home\documents\visual studio 2015\projects\dcengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\main.cpp(44): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\main.cpp(45): warning C4305: '+=': truncation from 'double' to 'float'
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\main.cpp(47): warning C4305: '+=': truncation from 'double' to 'float'
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at '\\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\bin\Debug\vc120.pdb'; linking object as if no debug info
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.exe
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.pdb (Partial PDB)

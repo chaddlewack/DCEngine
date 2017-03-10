@@ -10,7 +10,7 @@ namespace DCEngine { namespace graphics {
 	}
 
 	Layer::~Layer() {
-		//delete m_Shader;
+		delete m_Shader;
 		delete m_Renderer;
 		for (int i = 0; i < m_Rendereables.size(); i++)
 			delete m_Rendereables[i];
@@ -24,9 +24,10 @@ namespace DCEngine { namespace graphics {
 	void Layer::render() {
 		m_Shader->enable();
 		m_Renderer->begin();
-		for each (const Renderable2D* renderable in m_Rendereables)
-			m_Renderer->submit(renderable);
-
+	
+		for (const Renderable2D* renderable : m_Rendereables) 
+				m_Renderer->submit(renderable);
+		
 		m_Renderer->end();
 		m_Renderer->flush();
 	}
