@@ -53,7 +53,10 @@ int main() {
 		}
 	}
 #else
-	layer.add(new Sprite(-15.0f, 8.0f, 4, 3, maths::vec4(1, 1, 1, 1)));
+
+	Sprite* button = new Sprite(-15.0f, 5.0f, 6, 1, maths::vec4(1, 1, 1, 1));
+	layer.add(button);
+	layer.add(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, maths::vec4(1, 0, 1, 1)));
 #endif
 
 	TileLayer layer2(&shader2);
