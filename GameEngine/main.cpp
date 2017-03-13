@@ -10,6 +10,8 @@
 #include "src/graphics/simple2drenderer.h"
 #include "src/graphics/batchRenderer2D.h"
 
+#include "src/graphics/layers/group.h"
+
 #include "src/graphics/layers/tilelayer.h"
 
 #include "src/graphics/sprite.h"
@@ -40,8 +42,6 @@ int main() {
 	Shader* s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	Shader& shader = *s;
 	Shader& shader2 = *s2;
-	shader.enable();
-	shader2.enable();
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 	shader2.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 
@@ -54,13 +54,21 @@ int main() {
 	}
 #else
 
-	Sprite* button = new Sprite(-15.0f, 5.0f, 6, 1, maths::vec4(1, 1, 1, 1));
-	layer.add(button);
-	layer.add(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, maths::vec4(1, 0, 1, 1)));
+	// Relative Rotation test
+	// mat4 transform = mat4::translation(vec3(-15.0f, 5.0f, 0)) * mat4::rotation(45.0f, vec3(0, 0, 1));
+
+	Group* group = new Group(mat4::rotation(45.0f, vec3(0, 0, 1));
+	group->add(new Sprite(0, 0, 6, 3, maths::vec4(1, 1, 1, 1)));
+
+	Group* button = new Group(mat4::translation(vec3(0.5f, 0.5f, 0)));
+	button->add(new Sprite(0, 0, 5.0f, 2.0f, maths::vec4(1, 0, 1, 1)));
+	button->add(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, maths::vec4(0.2f, 0.3f, 0.8f, 1)));
+	group->add(button);
+	layer.add(group);
 #endif
 
 	TileLayer layer2(&shader2);
-	layer2.add(new Sprite(-2, -2, 4, 4, maths::vec4(1, 0, 1, 1)));
+	layer2.add(new Sprite(-2, -2, 6, 4, maths::vec4(1, 0, 1, 1)));
 
 	Timer time;
 	float timer = 0;
