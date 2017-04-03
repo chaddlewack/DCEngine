@@ -125,9 +125,6 @@
     <ClInclude Include="src\graphics\static_sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\layers\layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
