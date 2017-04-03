@@ -4,7 +4,7 @@
 
 namespace DCEngine {
 	
-	class FileUtil {
+	class FileUtils {
 	public:
 		// We use standard file and rt to ensure correct line endings.
 		static std::string read_file(const char* filepath) {

@@ -24,10 +24,10 @@ namespace DCEngine { namespace graphics {
 		}
 
 		// Only required if running on osx ---------------------------
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+		//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		// -----------------------------------------------------------
 
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
@@ -43,7 +43,7 @@ namespace DCEngine { namespace graphics {
 		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_Window, cursor_position_callback);
 		// v-sync toggle
-		glfwSwapInterval(0);
+		//glfwSwapInterval(1);
 
 		// Glew needs to be checked after the context has been initiated
 		if (glewInit() != GLEW_OK) {
