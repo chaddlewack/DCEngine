@@ -9,6 +9,7 @@ namespace DCEngine { namespace graphics {
 
 	public:
 		Sprite(float x, float y, float width, float height, maths::vec4& color);
+		Sprite(float x, float y, float width, float height, Texture* texture);
 	};
 
 }}

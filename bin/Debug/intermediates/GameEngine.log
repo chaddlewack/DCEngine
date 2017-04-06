@@ -1,25 +1,11 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  static_sprite.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  sprite.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  simple2drenderer.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  tilelayer.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  layer.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\layers\layer.cpp(15): warning C4018: '<': signed/unsigned mismatch
-  group.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   batchRenderer2D.cpp
 \\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(69): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(70): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(72): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\maths\maths_func.h(8): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(78): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(102): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(103): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(104): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(105): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+\\mac\home\documents\visual studio 2015\projects\dcengine\gameengine\src\graphics\batchrenderer2d.cpp(145): warning C4018: '<': signed/unsigned mismatch
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.exe
   GameEngine.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\DCEngine\\bin\Debug\DCEngine-Core.pdb (Partial PDB)

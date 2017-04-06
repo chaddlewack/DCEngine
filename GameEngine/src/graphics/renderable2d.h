@@ -6,12 +6,14 @@
 #include "renderer2d.h"
 #include "../maths/maths.h"
 #include "shader.h"
+#include "texture.h"
 
 namespace DCEngine { namespace graphics {
 
 	struct VertexData {
 		maths::vec3 vertex; // OpenGL location 0 
 		maths::vec2 uv;
+		float tid;
 		unsigned int color; // OpenGL location 1 
 	};
 
@@ -21,6 +23,8 @@ namespace DCEngine { namespace graphics {
 		maths::vec2 m_Size;
 		maths::vec4 m_Color;
 		std::vector<maths::vec2> m_UV;
+
+		Texture* m_Texture;
 	protected:
 		Renderable2D() { setUVDefaults(); };
 	public:
@@ -38,6 +42,8 @@ namespace DCEngine { namespace graphics {
 		inline const maths::vec2& getSize() const { return m_Size; }
 		inline const maths::vec4& getColor() const { return m_Color; }
 		inline const std::vector<maths::vec2>& getUV() const { return m_UV; }
+
+		inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
 	private:
 		void setUVDefaults() {
 			m_UV.push_back(maths::vec2(0, 0));
